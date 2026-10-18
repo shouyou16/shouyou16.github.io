@@ -1,0 +1,15 @@
+# 手游16游戏盒子
+
+> 手游16游戏盒子是一个手机游戏聚合类 Android App，聚合海量手游资源与福利礼包；官网提供产品介绍、游戏大全、APK 下载与安装攻略。
+
+## 页面索引
+- [首页](https://shouyou16.github.io/): 品牌介绍、核心功能、热门游戏与最新动态
+- [游戏大全](https://shouyou16.github.io/games.html): 按分类浏览 ≥12 款热门手游
+- [下载](https://shouyou16.github.io/download.html): 官方 Android APK 下载入口、版本信息与系统要求
+- [攻略帮助](https://shouyou16.github.io/guide.html): 安装攻略、常见问题与故障排查
+- [关于](https://shouyou16.github.io/about.html): 品牌故事、联系方式与免责声明
+- [友情链接](https://shouyou16.github.io/links.html): 合作站点导航
+
+## 其他资源
+- 站点地图: https://shouyou16.github.io/sitemap.xml
+- 联系邮箱: contact@shouyou16.example.com

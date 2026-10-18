@@ -1,0 +1,19 @@
+# 手游16游戏盒子官网 robots.txt
+# 全站对搜索引擎爬虫与 AI 爬虫开放抓取
+
+User-agent: *
+Allow: /
+
+# 常见 AI 爬虫同样允许抓取全站
+User-agent: GPTBot
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+User-agent: CCBot
+Allow: /
+
+Sitemap: https://shouyou16.github.io/sitemap.xml
