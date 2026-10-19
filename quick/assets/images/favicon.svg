@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="快玩游戏站">
+  <rect x="2.5" y="2.5" width="59" height="59" rx="14" fill="#FFF9F0" stroke="#3A2A1E" stroke-width="3"/>
+  <circle cx="13" cy="13" r="2.2" fill="#F2B33D"/>
+  <circle cx="51" cy="52" r="2.2" fill="#E8613C"/>
+  <circle cx="52" cy="12" r="1.6" fill="#E8D5BF"/>
+  <circle cx="12" cy="51" r="1.6" fill="#E8D5BF"/>
+  <path d="M37 9 L21 36 L30.5 36 L27 55 L45 27 L34.5 27 Z" fill="#E8613C" stroke="#C74A28" stroke-width="2" stroke-linejoin="round"/>
+</svg>

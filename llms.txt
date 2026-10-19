@@ -2,7 +2,7 @@
 
 > 手游16游戏盒子是一个手机游戏聚合类 Android App，聚合海量手游资源与福利礼包；官网提供产品介绍、游戏大全、APK 下载与安装攻略。
 
-## 页面索引
+## 主站页面
 - [首页](https://shouyou16.github.io/): 品牌介绍、核心功能、热门游戏与最新动态
 - [游戏大全](https://shouyou16.github.io/games.html): 按分类浏览 ≥12 款热门手游
 - [下载](https://shouyou16.github.io/download.html): 官方 Android APK 下载入口、版本信息与系统要求
@@ -10,6 +10,16 @@
 - [关于](https://shouyou16.github.io/about.html): 品牌故事、联系方式与免责声明
 - [友情链接](https://shouyou16.github.io/links.html): 合作站点导航
 
+## 快玩游戏站（quick 子站）
+> 快玩游戏站是手游16游戏盒子官网的姊妹站：轻量贴纸风手游快站，提供聚合下载入口、游戏分类精选与帮助攻略。
+
+- [快玩游戏站首页](https://shouyou16.github.io/quick/home.html): 新站总览与下载入口
+- [游戏大全](https://shouyou16.github.io/quick/games.html): 分类筛选浏览手游精选
+- [下载安装](https://shouyou16.github.io/quick/download.html): 版本信息与安装指引
+- [帮助中心](https://shouyou16.github.io/quick/help.html): 常见问题、安装教程与攻略精选
+- [关于本站](https://shouyou16.github.io/quick/about.html): 站点故事、里程碑与联系方式
+- [友情链接](https://shouyou16.github.io/quick/links.html): 友情站点导航
+
 ## 其他资源
 - 站点地图: https://shouyou16.github.io/sitemap.xml
-- 联系邮箱: contact@shouyou16.example.com
+- 联系邮箱: 2667389861@qq.com
