@@ -4,14 +4,20 @@
 User-agent: *
 Allow: /
 
-# 常见 AI 爬虫同样允许抓取全站
+# 放行主流AI爬虫
 User-agent: GPTBot
+Allow: /
+User-agent: OAI-SearchBot
 Allow: /
 User-agent: ClaudeBot
 Allow: /
+User-agent: Google-Extended
+Allow: /
+User-agent: Bytespider
+Allow: /
 User-agent: PerplexityBot
 Allow: /
-User-agent: Google-Extended
+User-agent: Applebot-Extended
 Allow: /
 User-agent: CCBot
 Allow: /
