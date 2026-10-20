@@ -771,6 +771,36 @@ describe('资产与仓库 T-19~T-20', () => {
     assert.ok(fs.existsSync(path.join(ROOT, 'quick/assets/images/favicon.svg')), 'quick/assets/images/favicon.svg 不存在');
   });
 
+  it('T-19f favicon PNG 回退三端齐备：主站 192 存在且为 PNG；quick 32/192/180 存在且为 PNG；13 页标签声明齐全（SVG+32+192+apple-touch）', () => {
+    // 产物：主站 favicon-192.png + quick favicon-32/favicon-192/apple-touch-icon（均需真实存在且为 PNG 魔数）
+    const PNG_MAGIC = [0x89, 0x50, 0x4e, 0x47];
+    for (const f of ['favicon-192.png', 'quick/assets/images/favicon-32.png', 'quick/assets/images/favicon-192.png', 'quick/assets/images/apple-touch-icon.png']) {
+      assert.ok(fs.existsSync(path.join(ROOT, f)), `${f} 不存在（favicon PNG 回退缺失）`);
+      const bytes = fs.readFileSync(path.join(ROOT, f));
+      PNG_MAGIC.forEach((b, i) => assert.equal(bytes[i], b, `${f} 缺少 PNG 魔数第 ${i + 1} 字节 0x${b.toString(16)}`));
+    }
+    // 声明：主站 7 页含 favicon.svg + favicon-32.png + favicon-192.png + apple-touch-icon.png 四条 link；
+    //       quick 6 页含 assets/images/ 下同名四条（目录感知）
+    for (const p of PAGES) {
+      const html = pageHtml[p];
+      assert.match(html, /<link rel="icon" type="image\/svg\+xml" href="favicon\.svg">/, `${p} 缺少 SVG favicon 声明`);
+      assert.match(html, /<link rel="icon" type="image\/png" sizes="32x32" href="favicon-32\.png">/, `${p} 缺少 32x32 PNG 回退声明`);
+      assert.match(html, /<link rel="icon" type="image\/png" sizes="192x192" href="favicon-192\.png">/, `${p} 缺少 192x192 PNG 回退声明（Android Chrome）`);
+      assert.match(html, /<link rel="apple-touch-icon" href="apple-touch-icon\.png">/, `${p} 缺少 apple-touch-icon 声明（iOS）`);
+    }
+    for (const p of QUICK_PAGES) {
+      const html = quickHtml[p];
+      const dir = 'assets/images/';
+      assert.match(html, new RegExp(`<link rel="icon" type="image/svg\\+xml" href="${dir}favicon\\.svg">`), `quick/${p} 缺少 SVG favicon 声明`);
+      assert.match(html, new RegExp(`<link rel="icon" type="image/png" sizes="32x32" href="${dir}favicon-32\\.png">`), `quick/${p} 缺少 32x32 PNG 回退声明`);
+      assert.match(html, new RegExp(`<link rel="icon" type="image/png" sizes="192x192" href="${dir}favicon-192\\.png">`), `quick/${p} 缺少 192x192 PNG 回退声明（Android Chrome）`);
+      assert.match(html, new RegExp(`<link rel="apple-touch-icon" href="${dir}apple-touch-icon\\.png">`), `quick/${p} 缺少 apple-touch-icon 声明（iOS）`);
+    }
+    // 尺寸互异：quick 三个 PNG 体积应互不相同（防同名复制占位）
+    const sizes = ['favicon-32.png', 'favicon-192.png', 'apple-touch-icon.png'].map((f) => sizeOf(`quick/assets/images/${f}`));
+    assert.equal(new Set(sizes).size, 3, `quick favicon PNG 体积互异校验失败（防占位复制）: ${sizes.join('/')}`);
+  });
+
   it('T-20 仓库根存在 .nojekyll 与 404.html（GitHub Pages 保障）', () => {
     assert.ok(fs.existsSync(path.join(ROOT, '.nojekyll')), '.nojekyll 不存在');
     assert.ok(fs.existsSync(path.join(ROOT, '404.html')), '404.html 不存在');
